@@ -367,6 +367,8 @@ feitas pelo XGBoost e pelas Random Survival Forests.</p>
 </div>
 <div id="metodologia" class="section level2">
 <h2>Metodologia</h2>
+<div id="geração-dos-tempos-de-sobrevivência-latentes" class="section level3">
+<h3>Geração dos tempos de sobrevivência latentes</h3>
 <p>Foram gerados tempos de sobrevivência de dois grupos distintos,
 simulando o comportamento das curvas de sobrevivência estimadas via
 Kaplan-Meier para pacientes do conjunto de dados original que realizaram
@@ -386,6 +388,9 @@ sobrevivência estimadas nos tempos 5 e 10 para cada grupo de pacientes,
 as quais foram tratadas como probabilidades teóricas e foram plugadas
 nas expressões fechadas de cada parâmetro, obtidas a partir da função de
 sobrevivência da distribuição Weibull.</p>
+</div>
+<div id="geração-dos-tempos-de-censura" class="section level3">
+<h3>Geração dos tempos de censura</h3>
 <p>Para a obtenção dos tempos de censura, foram geradas observações de
 distribuições uniforme no intervalo <span class="math inline">\([0,
 \theta_i]\)</span>, <span class="math inline">\(i = 0, 1\)</span>, sendo
@@ -393,6 +398,9 @@ distribuições uniforme no intervalo <span class="math inline">\([0,
 que segue a distribuição Weibull cujos parâmetros são especificados
 acima, e <span class="math inline">\(C_i\)</span> é o tempo de censura,
 que segue distribuição uniforme no intervalo <span class="math inline">\([0, \theta_i]\)</span>.</p>
+</div>
+<div id="sobre-as-amostras-e-o-ajuste-dos-modelos" class="section level3">
+<h3>Sobre as amostras e o ajuste dos modelos</h3>
 <p>Em todas as amostras simuladas, 70% das observações foram geradas com
 preditor 1 e 30% com preditor 0 (mantendo as proporções observadas para
 a variável de quimioterapia no conjunto de dados original).</p>
@@ -403,6 +411,7 @@ observado menor que o tempo de interesse daquela simulação.</p>
 <p>Ademais, os mesmos hiperparãmetros do XGBoost tunados no artigo
 original foram também tunados, aqui, para cada combinação de
 probabilidade de censura e tempo de interesse.</p>
+</div>
 <div id="cenários-considerados-no-estudo" class="section level3">
 <h3>Cenários considerados no estudo</h3>
 <p>Foram considerados os seguintes cenários:</p>
@@ -415,6 +424,8 @@ probabilidade de censura e tempo de interesse.</p>
 <p>Para cada combinação de parâmetros, foram realizadas (apenas) 50
 simulações. Ao final das 50 simulações, foram calculados o vício médio e
 o EQM das predições de cada modelo no conjunto de teste.</p>
+<p>Todos os scripts utilizados e saídas resultantes podem ser vistos <a href="https://github.com/RafaHerzog/simulacao_artigo_sobrevivencia">neste
+link do GitHub</a>.</p>
 </div>
 </div>
 <div id="resultados-preliminares-do-estudo" class="section level2">
