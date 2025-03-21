@@ -19,14 +19,36 @@ Este relatório tem como objetivo prover os resultados iniciais do estudo de sim
 
 Foram gerados tempos de sobrevivência de dois grupos distintos, simulando o comportamento das curvas de sobrevivência estimadas via Kaplan-Meier para pacientes do conjunto de dados original que realizaram e não realizaram quimioterapia. Os dados de ambos os grupos foram simulados a partir de distribuições Weibull, cujos parâmetros são descritos abaixo:
 
-- **Para as observações com preditor 0,** foram gerados dados da distribuição Weibull com parâmetros `shape = 0.2581641` e `scale = 68.4235846`;
-- **Para as observações com preditor 1,** foram gerados dados da distribuição Weibull com parâmetros `shape = 0.333643` e `scale = 16.918016` .
+- **Para as observações com preditor 0,** foram gerados dados da distribuição Weibull com parâmetros `shape = 0,2581641` e `scale = 68,4235846` (correspondentes a uma distribuição Weibull com mediana de 16,544 e valor esperado de 1359,731);
+- **Para as observações com preditor 1,** foram gerados dados da distribuição Weibull com parâmetros `shape = 0,333643` e `scale = 16,918016` (correspondentes a uma distribuição Weibull com mediana de 5,640 e valor esperado de 101,154).
 
 Para a obtenção desses parâmetros, foram obtidas as probabilidade de sobrevivência estimadas nos tempos 5 e 10 para cada grupo de pacientes, as quais foram tratadas como probabilidades teóricas e foram plugadas nas expressões fechadas de cada parâmetro, obtidas a partir da função de sobrevivência da distribuição Weibull. 
 
 ### Geração dos tempos de censura
 
 Para a obtenção dos tempos de censura, foram geradas observações de distribuições uniforme no intervalo $[0, \theta_i]$, $i = 0, 1$, sendo $\theta_i$ o valor de $\theta$ que resolvesse a equação $p_c = P(T_i > C_i)$, onde $p_c$ é a probabilidade de censura, $T_i$ é o tempo de sobrevivência latente, que segue a distribuição Weibull cujos parâmetros são especificados acima, e $C_i$ é o tempo de censura, que segue distribuição uniforme no intervalo $[0, \theta_i]$.
+
+Os valores de $\theta$ encontrados para cada probabilidade de censura e preditor podem ser vistos na tabela abaixo.
+
+
+```{r, echo=FALSE}
+library(knitr)
+
+# Criando o data frame com os valores arredondados
+tabela_df <- data.frame(
+  "Theta / Prob. de censura" = c("theta0", "theta1"),
+  "0,25" = c("677,427", "126,120"),
+  "0,4"  = c("129,396", "34,213"),
+  "0,5"  = c("42,914", "14,420"),
+  "0,6"  = c("12,927", "5,655"),
+  "0,7"  = c("3,169", "1,894"),
+  check.names = FALSE
+)
+
+# Exibindo a tabela formatada
+kable(tabela_df, digits = 3, align = "c", caption = "Valores de theta para cada probabilidade de censura e preditor.")
+```
+
 
 ### Sobre as amostras e o ajuste dos modelos
 

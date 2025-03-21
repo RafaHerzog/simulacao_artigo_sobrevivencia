@@ -11,7 +11,7 @@
 
 <meta name="author" content="Rafael Sant’Ana Herzog" />
 
-<meta name="date" content="2025-03-17" />
+<meta name="date" content="2025-03-21" />
 
 <title>Resultados preliminares do estudo de simulação que avalia o impacto da censura nas predições dos modelos</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Resultados preliminares do estudo de
 simulação que avalia o impacto da censura nas predições dos modelos</h1>
 <h4 class="author">Rafael Sant’Ana Herzog</h4>
-<h4 class="date">2025-03-17</h4>
+<h4 class="date">2025-03-21</h4>
 
 </div>
 
@@ -378,10 +378,14 @@ descritos abaixo:</p>
 <ul>
 <li><strong>Para as observações com preditor 0,</strong> foram gerados
 dados da distribuição Weibull com parâmetros
-<code>shape = 0.2581641</code> e <code>scale = 68.4235846</code>;</li>
+<code>shape = 0,2581641</code> e <code>scale = 68,4235846</code>
+(correspondentes a uma distribuição Weibull com mediana de 16,544 e
+valor esperado de 1359,731);</li>
 <li><strong>Para as observações com preditor 1,</strong> foram gerados
 dados da distribuição Weibull com parâmetros
-<code>shape = 0.333643</code> e <code>scale = 16.918016</code> .</li>
+<code>shape = 0,333643</code> e <code>scale = 16,918016</code>
+(correspondentes a uma distribuição Weibull com mediana de 5,640 e valor
+esperado de 101,154).</li>
 </ul>
 <p>Para a obtenção desses parâmetros, foram obtidas as probabilidade de
 sobrevivência estimadas nos tempos 5 e 10 para cada grupo de pacientes,
@@ -398,6 +402,49 @@ distribuições uniforme no intervalo <span class="math inline">\([0,
 que segue a distribuição Weibull cujos parâmetros são especificados
 acima, e <span class="math inline">\(C_i\)</span> é o tempo de censura,
 que segue distribuição uniforme no intervalo <span class="math inline">\([0, \theta_i]\)</span>.</p>
+<p>Os valores de <span class="math inline">\(\theta\)</span> encontrados
+para cada probabilidade de censura e preditor podem ser vistos na tabela
+abaixo.</p>
+<table style="width:100%;">
+<caption>Valores de theta para cada probabilidade de censura e
+preditor.</caption>
+<colgroup>
+<col width="38%" />
+<col width="13%" />
+<col width="13%" />
+<col width="11%" />
+<col width="11%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Theta / Prob. de censura</th>
+<th align="center">0,25</th>
+<th align="center">0,4</th>
+<th align="center">0,5</th>
+<th align="center">0,6</th>
+<th align="center">0,7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">theta0</td>
+<td align="center">677,427</td>
+<td align="center">129,396</td>
+<td align="center">42,914</td>
+<td align="center">12,927</td>
+<td align="center">3,169</td>
+</tr>
+<tr class="even">
+<td align="center">theta1</td>
+<td align="center">126,120</td>
+<td align="center">34,213</td>
+<td align="center">14,420</td>
+<td align="center">5,655</td>
+<td align="center">1,894</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="sobre-as-amostras-e-o-ajuste-dos-modelos" class="section level3">
 <h3>Sobre as amostras e o ajuste dos modelos</h3>
